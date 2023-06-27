@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/usr/include/SFML" // Caminho para os cabeçalhos da SFML
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++", // Caminho para o compilador g++
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64"
+    }
+  ],
+  "version": 4
+}
