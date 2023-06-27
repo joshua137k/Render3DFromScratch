@@ -54,7 +54,7 @@ class EngineRender:
         self.aspect_ratio = self.width / self.height
         self.intervalo=200
         self.FPS = 60
-        self.screen = pg.display.set_mode((self.width, self.height))
+        self.screen = pg.display.set_mode((self.width, self.height),pg.FULLSCREEN)
         self.clock = pg.time.Clock()
         self.fov = 200
         self.vrp_x, self.vrp_y, self.vrp_z = 0, 0, 0
@@ -101,14 +101,22 @@ class EngineRender:
     def control(self):
         mouse_movement = pg.mouse.get_rel()
         keys = pg.key.get_pressed()
+
+        mouse=pg.mouse.get_pos()
+        if mouse[0]>790:
+            pg.mouse.set_pos((0,mouse[1]))
+        elif mouse[0]<10:
+            pg.mouse.set_pos((780,mouse[1]))
+
+
         if keys[K_a]:
             self.projection.camera_x -= 1
             
         if keys[K_d]:
             self.projection.camera_x += 1
-        if keys[K_UP]:
+        if keys[K_SPACE]:
             self.projection.camera_y -= 1
-        if keys[K_DOWN]:
+        if keys[K_LSHIFT]:
             self.projection.camera_y += 1
         if keys[K_w]:
             self.projection.camera_x += math.sin(math.radians(self.projection.rotation_z))
